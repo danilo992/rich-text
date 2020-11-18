@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, rgb(193, 109, 231), #999);
+    background-position: center;
+    background-origin: unset;
+    background-repeat: no-repeat;
+}
+
+.container {
+    width: 700px;
+    margin: 0 auto;
+    color: #FFF;
+}
+
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.411);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.actions {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#save {
+    background-color: rgb(253, 253, 253);
+    padding: 10px 20px;
+    font-size: 1em;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-weight: 900;
+}
+
+/* 
+        EDITO WYSIWYG
+        javascript
+*/
+
