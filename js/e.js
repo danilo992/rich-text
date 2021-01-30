@@ -38,20 +38,19 @@ var CDEditor = function (textarea) {
         this.element.addEventListener(event, function () {
             CDEditorIframe.document.execCommand(commandName, false, selfComponent.recoverValue());
         });
-
     };
 
     var ComponentButton = function (commandName, icon) {
         var button = document.createElement('button');
         var buttonIcon = document.createElement('i');
-        buttonIcon.classList.add('fa', 'fa-' + icon);
+        buttonIcon.classList.add('fa', 'fa-', + icon);
         button.appendChild(buttonIcon);
-        Component.call(this, commandName, button, 'click');
+        Component.call(this,commandName, button, 'click');
     };
 
-    var ComponentSelect = function (commandName, values) {
+    var ComponentSelect = function (commandName, valeus) {
         var select = document.createElement('select');
-        values.forEach(function (value) {
+        valeus.forEach(function (value) {
             var option = document.createElement('option');
             option.value = value;
             option.appendChild(document.createTextNode(value));
@@ -62,7 +61,7 @@ var CDEditor = function (textarea) {
 
         var selfComponentSelect = this;
         this.recoverValue = function () {
-            return selfComponentSelect.element.firstChild.value;
+            return selfComponentSelect.element.firsChild.value;
         };
     };
 
@@ -73,29 +72,32 @@ var CDEditor = function (textarea) {
     };
 
     var selectedNode = function () {
-        return CDEditorIframe.getSelection().anchorNode.parentNode;
+        return CDEditorIframe.getSelection().anchorNode.parentNode; 
     };
 
-    var initToolbar = function (container, toolbar) {
-        //HIGNLIGHTER BUTTON
-        var highlighter = new ComponentButton('backColor', 'highlighter');
-        highlighter.recoverValue = function () {
-            return selectedNode().style.backgroundColor === 'yellow' ? 'white' : 'yellow';
-        };
+var initToolbar = function (container, toolbar) {
+    //HIGNLIGHTER BUTTON
+    var highlighter = new ComponentButton('backColor', 'highlighter');
+    highlighter.recoverValue = function () {
+        return selectedNode().style.backgroundColor === 'yellow' ? 'white' : 'yellow';
+    };
 
-        //FONTCOLOR MENU
-        var fontColor = new ComponentSelect('forecolor', colors);
-        Array.from(fontColor.element.firstChild.options).forEach(function (option) {
-            option.style.color = option.value;
-        });
-        fontColor.element.firstChild.style.color = Array.from(fontColor.element.firstChild.options)[0].value;
-        fontColor.recoverValue = function () {
-            fontColor.element.firstChild.style.color = fontColor.element.firstChild.value;
-            return fontColor.element.firstChild.value;
-        };
+    //FONTCOLOR MENU
 
-        // LINK BUTTON
-        var link = new ComponentButton('createLink', 'link');
+    var fontColor = new ComponentSelect('forecolor', colors);
+    Array.from(fontColor.element.firstChird.options).forEach(function (option) {
+        option.style.color = option.value;
+    });
+    
+    fontColor.element.firstChild.style.color = Array.from(fontColor.element.firstChild.options)[0].value;
+    fontColor.recoverValue = function () {
+        fotnColor.element.firstChild.style.color = fontColor.element.firsChild.value;
+        return fontColor.element.firstChild.value;
+    }
+    
+    //LINK BUTTON 
+
+    var link = new ComponentButton('createLink', 'link');
         link.recoverValue = function () {
             return prompt('Entre com o endereço do link:');
         };
